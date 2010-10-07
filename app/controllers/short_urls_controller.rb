@@ -19,6 +19,7 @@ class ShortUrlsController < ApplicationController
   def redirect
     @tinyurl = Url.find_by_short_link(params['short_link'])
     if @tinyurl
+      @tinyurl.increment_times_accessed!
       redirect_to @tinyurl.long_link
     else
       flash[:notice] = "Url #{request.env['REQUEST_URI']} does not exist, go ahead and create a url"

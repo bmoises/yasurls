@@ -13,8 +13,9 @@
 ActiveRecord::Schema.define(:version => 20101007024704) do
 
   create_table "urls", :force => true do |t|
-    t.string   "long_link",  :limit => 2048
-    t.string   "short_link", :limit => 6
+    t.string   "long_link",      :limit => 2048
+    t.string   "short_link",     :limit => 6
+    t.integer  "times_accessed",                 :default => 0
     t.datetime "created_at"
     t.datetime "updated_at"
   end

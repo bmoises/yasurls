@@ -3,7 +3,7 @@ class CreateUrls < ActiveRecord::Migration
     create_table :urls do |t|
       t.column(:long_link, :string, {:limit => 2048})
       t.column(:short_link, :string, {:limit => 6})
-      t.column(:times_accessed, :integer)
+      t.column(:times_accessed, :integer, {:default => 0})
       t.timestamps
     end
 
