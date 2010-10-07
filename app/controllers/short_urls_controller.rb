@@ -13,7 +13,7 @@ class ShortUrlsController < ApplicationController
     if !@tinyurl
       @tinyurl = Url.derive_short_url(short['url'])
     end
-    @host = request.env['REQUEST_URI'].gsub(/create/,'')
+    @host = "http://#{request.env['HTTP_HOST']}/"
   end
 
   def redirect
