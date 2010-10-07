@@ -12,6 +12,12 @@ class Url < ActiveRecord::Base
       url.save
       url
     end
+
+    # We override this method to ensure that we do a binary search so that "b" != "B"
+    def find_by_short_link(url)
+      (Url.find_by_sql ["SELECT * FROM urls WHERE short_link = BINARY ? LIMIT 1",url]).first
+    end
+
   end
   # increment the number of times url was accessed
   def increment_times_accessed!
