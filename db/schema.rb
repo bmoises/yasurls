@@ -13,13 +13,13 @@
 ActiveRecord::Schema.define(:version => 20101007024704) do
 
   create_table "urls", :force => true do |t|
-    t.string   "destination", :limit => 2048
-    t.string   "code",        :limit => 6
+    t.string   "long_link",  :limit => 2048
+    t.string   "short_link", :limit => 6
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "urls", ["code"], :name => "index_urls_on_code"
-  add_index "urls", ["destination"], :name => "index_urls_on_destination", :length => {"destination"=>"767"}
+  add_index "urls", ["long_link"], :name => "index_urls_on_long_link", :length => {"long_link"=>"767"}
+  add_index "urls", ["short_link"], :name => "index_urls_on_short_link"
 
 end

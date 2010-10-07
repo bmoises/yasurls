@@ -1,4 +1,8 @@
 Yasurls::Application.routes.draw do
+  
+  match '/', :to => 'short_urls#index', :as => 'default'
+  match '/create', :to => 'short_urls#create', :as => 'create'
+  match '/:short_link', :to => 'short_urls#redirect', :as => 'redirect'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

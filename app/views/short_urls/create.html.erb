@@ -1,0 +1,15 @@
+<h1>YASURLS!</h1>
+<hr />
+
+<%= form_tag '/create' do -%>
+<label for="">Shorten URL!</label>
+<br/>
+<input tabindex="1" name="shorten[url]" id="shortenurl" type="text" name="g" value="<%=@tinyurl.long_link%>" size="100"/>
+
+<input type="submit" id="shorteninput" name="shorten[input]" value="Shorten" />
+<% end %>
+<br/>
+
+<label>Your Link -></label>
+<input tabindex="2" type="text" name="g" value="<%=@host%><%=@tinyurl.short_link%>" size="25"/>
+
